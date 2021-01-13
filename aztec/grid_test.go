@@ -30,9 +30,9 @@ func TestDiamond_Iter(t *testing.T) {
           vv`
 
 	rand.Seed(1123142)
-	d := NewDiamond().Fill().Iter(10, false)
+	d := NewDiamond().Fill().Iter(10)
 
-	if d.Draw() != expected {
+	if d.String() != expected {
 		t.Fail()
 	}
 }

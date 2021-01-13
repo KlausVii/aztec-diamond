@@ -1,10 +1,8 @@
 package aztec
 
 import (
-	"fmt"
 	"log"
 	"math/rand"
-	"strings"
 )
 
 type direction int
@@ -44,51 +42,11 @@ func newGrid(n int) [][]direction {
 	return g
 }
 
-func (d *Diamond) Iter(n int, draw bool) *Diamond {
+func (d *Diamond) Iter(n int) *Diamond {
 	for i := 0; i < n; i++ {
-		d.Grow()
-		if draw {
-			fmt.Printf("%s\n\n", d.Draw())
-		}
-		d.Fill()
-		if draw {
-			fmt.Printf("%s\n\n", d.Draw())
-		}
+		d.Grow().Fill()
 	}
 	return d
-}
-
-func (d *Diamond) Draw() string {
-	le := len(d.g)
-
-	b := strings.Builder{}
-
-	c := 0
-	for i, l := range d.g {
-		if i != c {
-			b.WriteString("\n")
-			c = i
-		}
-		for j, p := range l {
-			if j == 0 {
-				b.WriteString(strings.Repeat(" ", (le-len(l))/2))
-			}
-
-			switch p {
-			case none:
-				b.WriteString("*")
-			case up:
-				b.WriteString("^")
-			case down:
-				b.WriteString("v")
-			case left:
-				b.WriteString("<")
-			case right:
-				b.WriteString(">")
-			}
-		}
-	}
-	return b.String()
 }
 
 func (d *Diamond) Fill() *Diamond {
