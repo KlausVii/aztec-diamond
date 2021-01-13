@@ -7,4 +7,4 @@ Example usage:
 aztec-diamond -order 10 -out out.png
 ```
 
-![Example output](https://github.com/KlausVii/aztec-diamond/main/examples/out.png)
+![Example output](https://github.com/KlausVii/aztec-diamond/raw/main/examples/out.png)
